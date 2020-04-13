@@ -25,9 +25,7 @@ add("IntervalTrees")
 # Pkg.add("IntervalTrees") for julia prior to v0.7
 ```
 
-If you are interested in the cutting edge of the development, please check out
-the master branch to try new features before release.
-
+If you are interested in the cutting edge of the development, please check out the [master branch](https://github.com/BioJulia/IntervalTrees.jl/tree/master) to try new features before release.
 
 ## Testing
 
