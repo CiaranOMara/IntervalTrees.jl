@@ -1,0 +1,24 @@
+name: Unit tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Julia ${{ matrix.version }} - ${{ matrix.os }} - ${{ matrix.arch }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        julia-version: ['1', '1.0', '0.7']
+        julia-arch: [x64, x86]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        exclude:
+          - os: macOS-latest
+            julia-arch: x86
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: ${{ matrix.julia-version }}
+      - name: Run tests
+        uses: julia-actions/julia-runtest@latest
